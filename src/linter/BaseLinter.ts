@@ -2,8 +2,9 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as child from 'child_process';
-import { type Logger } from '@logtape/logtape';
-import { getExtensionLogger } from '../logging';
+import { getLogger, type Logger } from '@logtape/logtape';
+
+const ROOT_LOGGER_CATEGORY = 'Verilog';
 
 /** Common configuration interface for linters */
 export interface LinterConfig {
@@ -45,7 +46,7 @@ export default abstract class BaseLinter {
   constructor(name: string, diagnosticCollection: vscode.DiagnosticCollection) {
     this.diagnosticCollection = diagnosticCollection;
     this.name = name;
-    this.logger = getExtensionLogger('Linter', name);
+    this.logger = getLogger([ROOT_LOGGER_CATEGORY, 'Linter', name]);
 
     // Register configuration change listener
     vscode.workspace.onDidChangeConfiguration(() => {

@@ -13,7 +13,7 @@
     "url": "https://github.com/mshr-h/vscode-verilog-hdl-support/issues"
   },
   "engines": {
-    "vscode": "^1.107.0"
+    "vscode": "^1.93.1"
   },
   "categories": [
     "Programming Languages",
@@ -157,69 +157,6 @@
         "filenames": []
       }
     ],
-    "grammars": [
-      {
-        "language": "verilog",
-        "scopeName": "source.verilog",
-        "path": "./syntaxes/verilog.tmLanguage.json"
-      },
-      {
-        "language": "verilogams",
-        "scopeName": "source.verilogams",
-        "path": "./syntaxes/verilogams.tmLanguage.json"
-      },
-      {
-        "language": "systemverilog",
-        "scopeName": "source.systemverilog",
-        "path": "./syntaxes/systemverilog.tmLanguage.json"
-      },
-      {
-        "language": "vhdl",
-        "scopeName": "source.vhdl",
-        "path": "./syntaxes/vhdl.tmLanguage.json"
-      },
-      {
-        "language": "ucf",
-        "scopeName": "source.ucfconstraints",
-        "path": "./syntaxes/ucf.tmLanguage.json"
-      },
-      {
-        "language": "sdc",
-        "scopeName": "source.sdc",
-        "path": "./syntaxes/sdc.tmLanguage.json"
-      },
-      {
-        "language": "tcl",
-        "scopeName": "source.tcl",
-        "path": "./syntaxes/tcl.tmlanguage.json"
-      },
-      {
-        "language": "upf",
-        "scopeName": "source.tcl",
-        "path": "./syntaxes/tcl.tmlanguage.json"
-      },
-      {
-        "language": "xdc",
-        "scopeName": "source.sdc",
-        "path": "./syntaxes/sdc.tmLanguage.json"
-      },
-      {
-        "scopeName": "markdown.verilog.codeblock",
-        "path": "./syntaxes/codeblock.json",
-        "injectTo": [
-          "text.html.markdown"
-        ],
-        "embeddedLanguages": {
-          "meta.embedded.block.verilog": "source.verilog",
-          "meta.embedded.block.systemverilog": "source.systemverilog"
-        }
-      },
-      {
-        "language": "verilog-filelist",
-        "scopeName": "source.verilog-filelist",
-        "path": "./syntaxes/verilog-filelist.tmLanguage.json"
-      }
-    ],
     "snippets": [
       {
         "language": "verilog",
@@ -243,23 +180,6 @@
       }
     ],
     "configuration": [
-      {
-        "title": "Verilog: Ctags",
-        "properties": {
-          "verilog.ctags.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": true,
-            "markdownDescription": "Enable Ctags integration."
-          },
-          "verilog.ctags.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "ctags",
-            "markdownDescription": "A path to the Ctags binary. Specify the binary name if it's in your `PATH`, or provide an absolute path to the executable."
-          }
-        }
-      },
       {
         "title": "Verilog: Formatting",
         "properties": {
@@ -510,133 +430,6 @@
             "markdownDescription": "A list of directory paths to use while Xilinx xvlog linting. All the paths are passed as arguments `-i <directory_path>`. Paths can be specified either an absolute or a relative to the workspace directory."
           }
         }
-      },
-      {
-        "title": "Verilog: Language Servers",
-        "properties": {
-          "verilog.languageServer.svls.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": false,
-            "markdownDescription": "Enable svls Language Server for SystemVerilog."
-          },
-          "verilog.languageServer.svls.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "svls",
-            "markdownDescription": "A path to the Svls Language Server binary."
-          },
-          "verilog.languageServer.svls.svlintTomlPath": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "[Experimental] Override the .toml configuration file to be used by svlint. Sets the `SVLINT_CONFIG` environment variable. When not set svlint searches for `.svlint.toml` within the Workspace folder.",
-            "pattern": "^(?:(?:~?\\/|[a-zA-Z]:\\\\)?[\\/\\\\\\w\\._-]*\\.toml)$|^$",
-            "patternErrorMessage": "Must be a path to a .toml file"
-          },
-          "verilog.languageServer.svls.arguments": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Add custom arguments for the Svls Language Server."
-          },
-          "verilog.languageServer.veridian.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": false,
-            "markdownDescription": "Enable veridian Language Server for SystemVerilog."
-          },
-          "verilog.languageServer.veridian.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "veridian",
-            "markdownDescription": "A path to the Veridian Language Server binary."
-          },
-          "verilog.languageServer.veridian.arguments": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Add custom arguments for the HDL Checker Veridian Language Server."
-          },
-          "verilog.languageServer.hdlChecker.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": false,
-            "markdownDescription": "Enable HDL Checker Language Server for Verilog-HDL, SystemVerilog, and VHDL."
-          },
-          "verilog.languageServer.hdlChecker.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "hdl_checker",
-            "markdownDescription": "A path to the HDL Checker Language Server binary."
-          },
-          "verilog.languageServer.hdlChecker.arguments": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Add custom arguments for the HDL Checker Language Server."
-          },
-          "verilog.languageServer.veribleVerilogLs.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": false,
-            "markdownDescription": "Enable verible-verilog-ls Language Server for SystemVerilog."
-          },
-          "verilog.languageServer.veribleVerilogLs.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "verible-verilog-ls",
-            "markdownDescription": "A path to the verible-verilog-ls Language Server binary."
-          },
-          "verilog.languageServer.veribleVerilogLs.arguments": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Add custom arguments for the verible-verilog-ls Language Server."
-          },
-          "verilog.languageServer.tclsp.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": false,
-            "markdownDescription": "Enable tclsp Language Server for Tcl/SDC/XDC/UPF."
-          },
-          "verilog.languageServer.tclsp.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "tclsp",
-            "markdownDescription": "A path to the tclsp Language Server binary."
-          },
-          "verilog.languageServer.tclsp.arguments": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Add custom arguments for the tclsp Language Server."
-          },
-          "verilog.languageServer.tclsp.configPath": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Optional path to a tclint config file. Absolute paths are recommended; relative paths are resolved per workspace root."
-          },
-          "verilog.languageServer.rustHdl.enabled": {
-            "scope": "window",
-            "type": "boolean",
-            "default": false,
-            "markdownDescription": "Enable vhdl_ls Language Server for VHDL."
-          },
-          "verilog.languageServer.rustHdl.path": {
-            "scope": "window",
-            "type": "string",
-            "default": "vhdl_ls",
-            "markdownDescription": "A path to the vhdl_ls Language Server binary."
-          },
-          "verilog.languageServer.rustHdl.arguments": {
-            "scope": "window",
-            "type": "string",
-            "default": "",
-            "markdownDescription": "Add custom arguments for the vhdl_ls Language Server."
-          }
-        }
       }
     ],
     "commands": [
@@ -647,22 +440,6 @@
       {
         "command": "verilog.lint",
         "title": "Verilog: Rerun lint tool"
-      },
-      {
-        "command": "verilog.openFliplot",
-        "title": "Verilog: Open Fliplot Waveform Viewer"
-      }
-    ],
-    "customEditors": [
-      {
-        "viewType": "verilog.fliplotEditor",
-        "displayName": "Fliplot Waveform Viewer",
-        "selector": [
-          {
-            "filenamePattern": "*.vcd"
-          }
-        ],
-        "priority": "default"
       }
     ]
   },
@@ -691,7 +468,7 @@
   "devDependencies": {
     "@types/node": "~25.0.3",
     "@types/semver": "^7.7.1",
-    "@types/vscode": "^1.107.0",
+    "@types/vscode": "^1.93.1",
     "@types/which": "^3.0.4",
     "@typescript-eslint/eslint-plugin": "^8.39.1",
     "@typescript-eslint/parser": "^8.39.1",
